@@ -20,7 +20,7 @@ services:
       traefik.http.routers.guacamole.rule: Host(`guacamole.${DOMAIN}`)
       traefik.http.routers.guacamole.tls: 'true'
       traefik.http.routers.guacamole.service: guacamole
-      traefik.http.services.guacamole.loadbalancer.server.port: 80
+      traefik.http.services.guacamole.loadbalancer.server.port: 8080
     restart: unless-stopped
 volumes:
   guacamole_data:
