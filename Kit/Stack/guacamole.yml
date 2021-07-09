@@ -10,7 +10,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZ}"
+      - TZ=${TZ}
       - EXTENSIONS=auth-ldap
     volumes:
       - guacamole_data:/config
