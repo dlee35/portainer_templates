@@ -5,7 +5,8 @@ services:
     image: linuxserver/nextcloud
     container_name: nextcloud
     hostname: nextcloud
-    network_mode: bridge
+    networks:
+      - fak-stack_fak-bridge
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -33,7 +34,8 @@ services:
     image: linuxserver/mariadb
     container_name: nextcloud_db
     hostname: mariadb
-    network_mode: bridge
+    networks:
+      - fak-stack_fak-bridge
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
