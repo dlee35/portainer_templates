@@ -23,6 +23,9 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=mariadb
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - APACHE_DISABLE_REWRITE_IP=1
+      - TRUSTED_PROXIES=172.16.0.0/12
+      - OVERWRITEPROTOCOL=https
     volumes:
       - nextcloud_data:/var/www/html
     labels:
