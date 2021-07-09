@@ -50,3 +50,6 @@ services:
 volumes:
   nextcloud_data:
   nextcloud_db:
+networks:
+  fak-stack_fak-bridge:
+    driver: bridge
