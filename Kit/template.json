@@ -2243,6 +2243,11 @@
 					"default": "local",
 					"label": "DOMAIN",
 					"name": "DOMAIN"
+				},
+				{
+					"default": "fak-stack_fak-bridge",
+					"label": "NETWORK_NAME",
+					"name": "NETWORK_NAME"
 				}
 			],
 			"logo": "https://raw.githubusercontent.com/dlee35/portainer_templates/master/Images/nextcloud-icon.png",
