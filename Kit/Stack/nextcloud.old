@@ -2,7 +2,7 @@
 version: "2"
 services:
   nextcloud:
-    image: nextcloud:22.0.0-fpm
+    image: linuxserver/nextcloud
     container_name: nextcloud
     hostname: nextcloud
     links:
@@ -17,24 +17,24 @@ services:
       - TZ=${TZ}
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_PASSWORD}
-#      - SQLITE_DATABASE=nextcloud_sql
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud
-      - MYSQL_HOST=mariadb
-      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - SQLITE_DATABASE=nextcloud_sql
+#      - MYSQL_DATABASE=nextcloud_db
+#      - MYSQL_USER=nextcloud
+#      - MYSQL_HOST=mariadb
+#      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
     volumes:
-      - nextcloud_data:/var/www/html
+      - nextcloud_data:/config
     labels:
       traefik.enable: 'true'
       traefik.http.routers.nextcloud.entrypoints: websecure
       traefik.http.routers.nextcloud.rule: Host(`nextcloud.${DOMAIN}`)
       traefik.http.routers.nextcloud.tls: 'true'
       traefik.http.routers.nextcloud.service: nextcloud
-      traefik.http.services.nextcloud.loadbalancer.server.port: 9000
-#      traefik.http.services.nextcloud.loadbalancer.server.scheme: https
+      traefik.http.services.nextcloud.loadbalancer.server.port: 443
+      traefik.http.services.nextcloud.loadbalancer.server.scheme: https
     restart: unless-stopped
   nextcloud_db:
-    image: mariadb:10.6.2
+    image: linuxserver/mariadb
     container_name: nextcloud_db
     hostname: mariadb
     networks:
@@ -48,7 +48,7 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
     volumes:
-      - nextcloud_db:/var/lib/mysql
+      - nextcloud_db:/config
     restart: unless-stopped
 volumes:
   nextcloud_data:
