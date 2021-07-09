@@ -34,7 +34,7 @@ services:
 #      traefik.http.services.nextcloud.loadbalancer.server.scheme: https
     restart: unless-stopped
   nextcloud_db:
-    image: mariadb:10.6.2
+    image: mariadb:10.3.22
     container_name: nextcloud_db
     hostname: mariadb
     networks:
