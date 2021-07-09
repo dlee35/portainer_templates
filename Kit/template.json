@@ -2238,6 +2238,11 @@
 					"default": "admin123!",
 					"label": "MYSQL_ROOT_PASSWORD",
 					"name": "MYSQL_ROOT_PASSWORD"
+				},
+				{
+					"default": "local",
+					"label": "DOMAIN",
+					"name": "DOMAIN"
 				}
 			],
 			"logo": "https://raw.githubusercontent.com/dlee35/portainer_templates/master/Images/nextcloud-icon.png",
