@@ -2,7 +2,7 @@
 version: "2"
 services:
   nextcloud:
-    image: nextcloud:22.0.0-fpm
+    image: nextcloud:22.0.0-apache
     container_name: nextcloud
     hostname: nextcloud
     links:
