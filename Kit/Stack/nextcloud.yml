@@ -5,8 +5,12 @@ services:
     image: linuxserver/nextcloud
     container_name: nextcloud
     hostname: nextcloud
+    links:
+      - nextcloud_db
+    depends_on:
+      - nextcloud_db
     networks:
-      - fak-stack_fak-bridge
+      - fak-bridge
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -28,14 +32,12 @@ services:
       traefik.http.services.nextcloud.loadbalancer.server.port: 443
       traefik.http.services.nextcloud.loadbalancer.server.scheme: https
     restart: unless-stopped
-    depends_on:
-      - nextcloud_db
   nextcloud_db:
     image: linuxserver/mariadb
     container_name: nextcloud_db
     hostname: mariadb
     networks:
-      - fak-stack_fak-bridge
+      - fak-bridge
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -51,6 +53,6 @@ volumes:
   nextcloud_data:
   nextcloud_db:
 networks:
-  fak-stack_fak-bridge:
+  fak-bridge:
     external:
-      name: fak-stack_fak-bridge
+      name: ${NETWORK_NAME}
