@@ -1,0 +1,118 @@
+{
+	"version": "2",
+	"templates": [
+		{
+			"categories": [
+				"Response",
+				"Other",
+				"Tools"
+			],
+			"description": "A clientless remote desktop gateway.",
+			"logo": "https://raw.githubusercontent.com/dlee35/portainer_templates/master/Images/guacamole.png",
+			"name": "guacamole",
+			"note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
+			"platform": "linux",
+			"repository": {
+				"stackfile": "Kit/Stack/guacamole.yml",
+				"url": "https://github.com/dlee35/portainer_templates"
+			},
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "America/New_York",
+					"label": "Timezone",
+					"name": "TZ"
+				},
+				{
+					"default": "local",
+					"label": "DOMAIN",
+					"name": "DOMAIN"
+				},
+				{
+					"default": "fak-stack_fak-bridge",
+					"label": "NETWORK_NAME",
+					"name": "NETWORK_NAME"
+				}
+			],
+			"title": "Guacamole",
+			"type": 3
+		},
+		{
+			"categories": [
+				"Response",
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "America/New_York",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "admin",
+					"label": "NEXTCLOUD_USER",
+					"name": "NEXTCLOUD_USER"
+				},
+				{
+					"default": "admin123!",
+					"label": "NEXTCLOUD_PASSWORD",
+					"name": "NEXTCLOUD_PASSWORD"
+				},
+				{
+					"default": "nextcloud!",
+					"label": "DATABASE_PASSWORD",
+					"name": "DATABASE_PASSWORD"
+				},
+				{
+					"default": "admin123!",
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
+				},
+				{
+					"default": "local",
+					"label": "DOMAIN",
+					"name": "DOMAIN"
+				},
+				{
+					"default": "fak-stack_fak-bridge",
+					"label": "NETWORK_NAME",
+					"name": "NETWORK_NAME"
+				}
+			],
+			"logo": "https://raw.githubusercontent.com/dlee35/portainer_templates/master/Images/nextcloud-icon.png",
+			"name": "nextcloud",
+			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
+			"platform": "linux",
+			"repository": {
+				"stackfile": "Kit/Stack/nextcloud.yml",
+				"url": "https://github.com/dlee35/portainer_templates"
+			},
+			"title": "Nextcloud",
+			"type": 3
+		}
+	]
+}
