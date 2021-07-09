@@ -11,8 +11,6 @@ services:
       - nextcloud_db
     networks:
       - fak-bridge
-    ports:
-      - 9000:9000
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -32,7 +30,7 @@ services:
       traefik.http.routers.nextcloud.rule: Host(`nextcloud.${DOMAIN}`)
       traefik.http.routers.nextcloud.tls: 'true'
       traefik.http.routers.nextcloud.service: nextcloud
-      traefik.http.services.nextcloud.loadbalancer.server.port: 9000
+      traefik.http.services.nextcloud.loadbalancer.server.port: 80
 #      traefik.http.services.nextcloud.loadbalancer.server.scheme: https
     restart: unless-stopped
   nextcloud_db:
