@@ -11,6 +11,8 @@ services:
       - nextcloud_db
     networks:
       - fak-bridge
+    ports:
+      - 9000:9000
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
