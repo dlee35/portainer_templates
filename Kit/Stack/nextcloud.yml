@@ -52,4 +52,5 @@ volumes:
   nextcloud_db:
 networks:
   fak-stack_fak-bridge:
-    driver: bridge
+    external:
+      name: fak-stack_fak-bridge
