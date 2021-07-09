@@ -1156,27 +1156,38 @@
 		},
 		{
 			"categories": [
+				"Response",
 				"Other",
 				"Tools"
 			],
 			"description": "A clientless remote desktop gateway.",
-			"image": "oznu/guacamole:latest",
-			"logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/guacamole.png",
+			"logo": "https://raw.githubusercontent.com/dlee35/portainer_templates/master/Images/guacamole.png",
 			"name": "guacamole",
 			"note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
 			"platform": "linux",
-			"ports": [
-				"8080:8080/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Guacamole",
-			"type": 1,
-			"volumes": [
+			"repository": {
+				"stackfile": "Kit/Stack/guacamole.yml",
+				"url": "https://github.com/dlee35/portainer_templates"
+			},
+			"env": [
 				{
-					"bind": "/portainer/Files/AppData/Config/Guacamole",
-					"container": "/config"
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "America/New_York",
+					"label": "Timezone",
+					"name": "TZ"
 				}
-			]
+			],
+			"title": "Guacamole",
+			"type": 3
 		},
 		{
 			"categories": [
